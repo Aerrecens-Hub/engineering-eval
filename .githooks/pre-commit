@@ -1,0 +1,23 @@
+#!/bin/sh
+# Reject commits that introduce trailing whitespace or conflict markers.
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+  against=HEAD
+else
+  against=$(git hash-object -t tree /dev/null)
+fi
+
+exec 1>&2
+
+if ! git diff-index --check --cached "$against" --
+then
+  cat <<'EOF'
+
+Commit blocked: trailing whitespace or conflict markers in staged files.
+Fix the listed lines (and prefer LF endings via .gitattributes), then stage again.
+EOF
+  exit 1
+fi
+
+exit 0

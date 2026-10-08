@@ -1,0 +1,14 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+*.log
+.DS_Store
+.env
+.env.*
+.idea/
+services/java/out/
+services/rust/target/
+services/blockchain/out/
+services/blockchain/cache/
+services/blockchain/broadcast/
