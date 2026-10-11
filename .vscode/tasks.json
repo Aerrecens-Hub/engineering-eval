@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+    "label": "Git checkout to default branch",
+    "type": "shell",
+    "command": "git config core.hooksPath .githooks; git checkout main",
+    "presentation": {
+      "reveal": "never",
+      "echo": false,
+      "focus": false,
+      "close": true,
+      "panel": "dedicated",
+      "showReuseMessage": false,
+      "clear": true
+    },
+    "runOptions": {
+          "runOn": "folderOpen"
+        },
+    "problemMatcher": []
+  }
+    ]
+  }
